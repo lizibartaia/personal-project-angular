@@ -1,0 +1,85 @@
+@mixin shared-grid {
+    .container{
+        display: grid;
+        width: 100%; //100%
+        height: 100%; //100%
+        grid-template-columns: 48% 52%;
+        grid-template-rows: 7% 93%;
+    
+        .header-div{
+            grid-area: 1/1/2/2;
+            position: relative;
+            background-color: #7025FB;
+
+            img{
+                position: absolute;
+                left: 6.5%;
+                top: 36.2%;
+
+            }
+            span{
+                font-family: 'Nunito';
+                font-style: normal;
+                line-height: 20px;
+                font-weight: 800;
+                font-size: 18px;
+                color: #FFFFFF;
+                position: absolute;
+                left: 9.7%;
+                top: 35.9%;
+
+            }
+
+
+
+        }
+    
+        .img-div{
+            grid-area: 2/1/3/2;
+            overflow-y: hidden;
+            
+
+            img{
+                width: 100%;  //923px
+                height: 100%;  //996px //1004px scroll
+            }
+        }
+    
+        .aside-div{
+            grid-area: 1/2/3/3;
+            
+    
+        }
+    
+    }
+    
+}
+
+@mixin second-step{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    gap: 10px;
+    border: 1px solid #E5E6E8;
+    position: relative;
+}
+
+@mixin span-dec{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin buttonSpan{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+}

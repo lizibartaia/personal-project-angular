@@ -1,0 +1,89 @@
+@use '/src/app/shared/shared.component.scss' as *;
+@include shared-grid;
+
+.aside-div{
+    background-color: #FD5334;
+    position: relative;
+
+    :nth-child(1){
+        font-family: 'Nunito';
+        font-style: normal;
+        line-height: 109px;
+        font-weight: 800;
+        font-size: 80px;
+        color: #FFFFFF;
+        position: absolute;
+        left: 8.5%;
+        top: 24.5%;
+        right: 2.6%;
+        
+    }
+
+    :nth-child(2){
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 27px;
+        color: #212529;
+        position: absolute;
+        top: 28.3%;
+        left: 60.8%;
+    }
+
+    :nth-child(3){
+        font-family: 'Nunito';
+        font-style: normal;
+        line-height: 109px;
+        font-weight: 800;
+        font-size: 80px;
+        color: #FFFFFF;
+        position: absolute;
+        left: 8.5%;
+        top: 36.1%;
+       
+    }
+    .register,.login{
+        width: 191px;
+        height: 53px;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 27px;
+        background-color: #212529;
+        border: none;
+        border-radius: 8px;
+        color: #FFFFFF;
+        // position: absolute;
+        // padding: 13px 24px;
+        // left: 8.5%;
+        // top: 55.6%;
+        // gap: 10px;
+       
+    }
+    .register{
+        position: absolute;
+        padding: 13px 24px;
+        left: 8.5%;
+        top: 55.6%;
+        gap: 10px;
+    }
+    .login{
+        position: absolute;
+        padding: 13px 24px;
+        left: 55.5%;
+        top: 55.5%;
+        gap: 10px;
+    }
+    button:hover{
+        border: 2px solid #c2a5f9cc;
+        cursor: pointer;
+    }
+
+    
+
+}
+
+
+
