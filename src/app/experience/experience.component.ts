@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+ 
 
 @Component({
   selector: 'app-experience',
@@ -6,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./experience.component.scss']
 })
 export class ExperienceComponent implements OnInit {
+
+  selectFormControl = new FormControl('', Validators.required);
+   
+
 
   constructor() { }
 

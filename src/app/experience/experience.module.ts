@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ExperienceRoutingModule } from './experience-routing.module';
 import { ExperienceComponent } from './experience.component';
 import { SharedModule } from '../shared/shared.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     ExperienceRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[ExperienceComponent]
 })

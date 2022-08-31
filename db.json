@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "name": "ew",
+      "email": "test@gmail.com",
+      "phone": "5678888777",
+      "date_of_birth": "2022-08-23T20:00:00.000Z",
+      "experience_level": "",
+      "already_participated": "",
+      "id": 2
+    }
+  ]
+}

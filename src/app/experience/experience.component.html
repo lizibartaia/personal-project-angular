@@ -1,1 +1,103 @@
 <p>experience works!</p>
+
+<div class="container">
+    <div class="header-div">
+        <img src="/assets/Vector.png" alt="vector">
+        <span>KnightCup</span>
+    </div>
+    <div class="img-div"><img src="/assets/purple-photo.png" alt="photo"></div>
+    <div class="aside-div">
+        <div class="HeaderText">
+            <span>Start Creating Your Account</span>
+        </div>
+
+        <div class="step-one">
+            <img src="/assets/marked.png" alt="marked">
+        </div>
+        <div class="line"></div>
+        <div class="step-two">
+            <span>2</span>
+        </div>
+        <span class="personal">Personal information</span>
+        <span class="chess">Chess experience</span>
+        <span class="info">Personal information</span>
+
+        <form  > 
+          
+            <mat-form-field appearance="fill">
+                <mat-label>Level of knowledge (required)</mat-label>
+                <select matNativeControl required [formControl]="selectFormControl">
+                  <option label="--select something --"></option>
+                  <option value="beginner">beginner</option>
+                  <option value="intermediate">intermediate</option>
+                  <option value="professional">professional</option>
+                </select>
+                <mat-error *ngIf="selectFormControl.hasError('required')">
+                  This field is required
+                </mat-error>
+              </mat-form-field>
+        
+              <mat-form-field appearance="fill">
+                <mat-label>Choose your character (required)</mat-label>
+                <select matNativeControl required [formControl]="selectFormControl">
+                  <option label="--(Total 4) --"></option>
+                  <option value="Magnus Carlsen">Magnus Carlsen</option>
+                  <option value="Wilhelm Steinitz">Wilhelm Steinitz</option>
+                  <option value="Garry Kasparov">Garry Kasparov</option>
+                  <option value="Bobby Fischer">Bobby Fischer</option>
+                </select>
+                <mat-error *ngIf="selectFormControl.hasError('required')">
+                  This field is required
+                </mat-error>
+              </mat-form-field>
+
+              <p  class="required">Have you participated in Chess Championship?</p>
+                <input type="radio" id="yes" name="fav_language" value="yes">
+                <label for="yes">Yes</label><br>
+                <input type="radio" id="no" name="fav_language" value="no">
+                <label for="no">No</label><br>
+                
+            
+
+               
+             
+              
+
+
+
+        
+        
+        
+        
+        
+           
+            <button class="back"  >
+              <span>Back</span>
+          </button>
+           
+          <button type="submit" class="next" >
+              <span>Next</span>
+              
+          </button>
+        
+         </form> 
+        
+         
+
+       
+
+        
+    </div>
+     
+</div>
+
+
+
+
+
+
+
+
+
+
+
