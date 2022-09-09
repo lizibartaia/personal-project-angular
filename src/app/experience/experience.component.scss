@@ -60,6 +60,7 @@
         @include second-step;
         top: 6.1%;
         left: 33%;
+        text-align: center;
         background-color: #F5F5F5;
     
     span{
@@ -83,7 +84,7 @@
     .chess{
         @include span-dec;
         position: absolute;
-        top: 21.5%;
+        top: 21.7%;
         left: 63%;
 
     }
@@ -97,7 +98,7 @@
         color: #000000;
         position: absolute;
         top: 30%;
-        left: 51%;
+        left: 53%;
     }
 
      
@@ -135,7 +136,7 @@
         gap: 10px;
         background-color: #212529;
         border-radius: 8px;
-        margin-left: 520px;
+        margin-left: 150px;
         span{
           @include buttonSpan;
           color: #FFFFFF;
@@ -160,4 +161,18 @@
       }
 
 
+}
+
+mat-form-field{
+    margin-top: 245px;
+    margin-left: 90px;
+    margin-bottom: 50px;
+}
+
+p{
+    margin-left: 100px;
+}
+
+input{
+    margin-left: 100px;
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {RegisterUser} from './registerUser'
+import {RegisterUser} from './registerUser.interface'
 import {Pipe, PipeTransform} from '@angular/core';
 import { Router } from '@angular/router';
 import {RegisterUsersService} from '../register-users.service'
+ 
 
 @Pipe({
   name: 'formControl',
@@ -19,7 +20,6 @@ export class FormControlPipe implements PipeTransform {
 interface RegisterUserFormGroup extends FormGroup {
   value: RegisterUser;
 
-  // We need to add these manually again, same fields as IUser
   controls: {
       name: AbstractControl;
       email: AbstractControl;
@@ -27,6 +27,7 @@ interface RegisterUserFormGroup extends FormGroup {
       date_of_birth: AbstractControl;
       experience_level: AbstractControl;
       already_participated: AbstractControl;
+      character_id:AbstractControl
   };
 }
 
@@ -38,11 +39,9 @@ interface RegisterUserFormGroup extends FormGroup {
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  RegisterForm:RegisterUserFormGroup;
-  // name = new FormControl('', [Validators.required]);
-  // email = new FormControl('', [Validators.required, Validators.email]);
-  // phone = new FormControl('', [Validators.required]);
-  // dob = new FormControl('', [Validators.required]); 
+ 
+  regform = this.RegisterUsersService.RegisterForm;
+  
   
 
   constructor(private formBuilder:FormBuilder,private router:Router,private RegisterUsersService:RegisterUsersService) {
@@ -50,55 +49,45 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.RegisterForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(2) ]],
-      email: ['', [Validators.required, Validators.email ]],
-      phone: ['', [Validators.required,Validators.pattern("^[0-9]*$"),
-      Validators.minLength(10), Validators.maxLength(10)]],
-      date_of_birth: ['', Validators.required],
-      experience_level: ['', Validators.required],
-      already_participated: ['', Validators.required],
-    }) as unknown as RegisterUserFormGroup;
+   
   }
 
 
-
-    
   getemailMessage() {
-    if (this.RegisterForm.controls.email.hasError('required')) {
+    if (this.RegisterUsersService.RegisterForm.controls.email.hasError('required')) {
       return 'You must enter a value';
     }
 
-    return this.RegisterForm.controls.email.hasError('email') ? 'Not a valid email' : '';
+    return this.RegisterUsersService.RegisterForm.controls.email.hasError('email') ? 'Not a valid email' : '';
   }
   getnameErrorMessage() {
-    if (this.RegisterForm.controls.name.hasError('required')) {
+    if (this.RegisterUsersService.RegisterForm.controls.name.hasError('required')) {
       return 'You must enter a value';
     }
 
-    return this.RegisterForm.controls.name.hasError('minlength') ? 'Name must be at least 2 characters long.' : '';
+    return this.RegisterUsersService.RegisterForm.controls.name.hasError('minlength') ? 'Name must be at least 2 characters long.' : '';
   }
   
   getphoneErrorMessage() {
-    if (this.RegisterForm.controls.phone.hasError('required')) {
+    if (this.RegisterUsersService.RegisterForm.controls.phone.hasError('required')) {
       return 'You must enter a value';
     }
-    if (this.RegisterForm.controls.phone.hasError('pattern')) {
+    if (this.RegisterUsersService.RegisterForm.controls.phone.hasError('pattern')) {
       return 'Phone number format is not valid';
     }
-    if (this.RegisterForm.controls.phone.hasError('maxlength')) {
+    if (this.RegisterUsersService.RegisterForm.controls.phone.hasError('maxlength')) {
       return 'Phone number must be at least 10 numbers, try again.';
     }
 
-    return this.RegisterForm.controls.phone.hasError('minlength')? 'Phone number must be at least 10 numbers' : '';
+    return this.RegisterUsersService.RegisterForm.controls.phone.hasError('minlength')? 'Phone number must be at least 10 numbers' : '';
   }
 
   getdobMessage(){
-    if (this.RegisterForm.controls.date_of_birth.hasError('required')) {
+    if (this.RegisterUsersService.RegisterForm.controls.date_of_birth.hasError('required')) {
       return 'You must enter a value';
     }
 
-    return this.RegisterForm.controls.email.hasError('email') ? 'Not a valid value' : '';
+    return this.RegisterUsersService.RegisterForm.controls.email.hasError('email') ? 'Not a valid value' : '';
 
   }
 
@@ -108,12 +97,21 @@ export class RegisterComponent implements OnInit {
   }
 
   onNextclick(){
-    this.router.navigate(['experience'])
+    if(this.regform.controls.name.valid && this.regform.controls.email.valid && this.regform.controls.phone.valid && this.regform.controls.date_of_birth.valid){
+      console.log("valid")
+      console.log(this.regform)
+      this.router.navigate(['experience'])
+    }else{
+      
+      console.log("invalid")
+    }
+
+      
 
   }
 
-  register(RegisterForm:any){
-    this.RegisterUsersService.register_user(RegisterForm.value).subscribe(
+  register(regform:any){
+    this.RegisterUsersService.register_user(regform.value).subscribe(
       (resp) => {
         console.log(resp);
         
@@ -126,13 +124,5 @@ export class RegisterComponent implements OnInit {
   }
 
   
-
-
-
-
-
-
-  
-
 }
 

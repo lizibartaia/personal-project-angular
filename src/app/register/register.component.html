@@ -1,5 +1,4 @@
 
-<!-- <button mat-button>button</button> -->
 <div class="container">
     <div class="header-div">
         <img src="/assets/Vector.png" alt="vector">
@@ -22,48 +21,51 @@
         <span class="chess">Chess experience</span>
         <span class="info">Personal information</span>
          
-
-        <form [formGroup]="RegisterForm" (ngSubmit)="register(RegisterForm)"> 
+        <form [formGroup]="regform" (ngSubmit)="register(regform)" class="form"> 
           
           <div class="example-container">
             <mat-form-field appearance="fill">
               <mat-label>Name</mat-label>
-              <input matInput placeholder="your name" [formControl]="RegisterForm.controls.name| formControl" required>
-              <mat-error *ngIf="RegisterForm.controls.name.invalid">{{getnameErrorMessage()}}</mat-error>
+              <input matInput placeholder="your name" [formControl]="regform.controls.name| formControl" required>
+              <mat-error *ngIf="regform.controls.name.invalid">{{getnameErrorMessage()}}</mat-error>
             </mat-form-field>
           </div>
 
           <div class="example-container">
             <mat-form-field appearance="fill">
               <mat-label>Enter your email</mat-label>
-              <input matInput placeholder="pat@example.com"  [formControl]="RegisterForm.controls.email| formControl " required>
-               <mat-error *ngIf="RegisterForm.controls.email.invalid">{{getemailMessage()}}</mat-error> 
+              <input matInput placeholder="pat@example.com"  [formControl]="regform.controls.email| formControl " required>
+               <mat-error *ngIf="regform.controls.email.invalid">{{getemailMessage()}}</mat-error> 
             </mat-form-field>
           </div>
 
           <div class="example-container">
             <mat-form-field appearance="fill">
               <mat-label>Enter your phone number</mat-label>
-              <input matInput placeholder="5776798760" [formControl]="RegisterForm.controls.phone | formControl" required>
-              <mat-error *ngIf="RegisterForm.controls.phone.invalid">{{getphoneErrorMessage()}}</mat-error>
+              <input matInput placeholder="5776798760" [formControl]="regform.controls.phone | formControl" required>
+              <mat-error *ngIf="regform.controls.phone.invalid">{{getphoneErrorMessage()}}</mat-error>
             </mat-form-field>
           </div>
 
           <div class="example-container">
             <mat-form-field appearance="fill">
               <mat-label>Enter your date of birth</mat-label>
-              <input matInput [matDatepicker]="picker1" [formControl]="RegisterForm.controls.date_of_birth | formControl" required>
+              <input matInput [matDatepicker]="picker1" [formControl]="regform.controls.date_of_birth | formControl" required>
               <mat-hint>MM/DD/YYYY</mat-hint>
               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
               <mat-datepicker #picker1 ></mat-datepicker>
-              <mat-error *ngIf="RegisterForm.controls.date_of_birth.invalid">{{getdobMessage()}}</mat-error>
+              <mat-error *ngIf="regform.controls.date_of_birth.invalid">{{getdobMessage()}}</mat-error>
             </mat-form-field>
+            
           </div>
+
+         
+          
           <button class="back" (click)="onbackclick()">
             <span>Back</span>
         </button>
          
-        <button type="submit" class="next" (click)="onNextclick()">
+        <button type="button" class="next" (click)="onNextclick()" >
             <span>Next</span>
             <img src="/assets/button-Vector.png" alt="">
         </button>

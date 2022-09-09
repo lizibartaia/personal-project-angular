@@ -1,6 +1,87 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+.quiz{
+
+    width: 500px;
+    height: 600px;
+    background-color: brown;
+    font-weight: 600;
+    margin: 0 auto;
+    padding: 14px 75px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+
+    .next-button{
+       
+        background-color: black;
+        color: white;
+        font-weight: 600;
+        padding: 14px 75px;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-align: center;
+    }
 
 
+    .score{
+        background-color: #fff;
+        color:000;
+        font-size: 18px;
+        width: 200px;
+        margin: 0 auto;
+        font-weight: 600;
+        height: 40px;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+.disabled-answer{
+    pointer-events: none;
+}
+
+.answers{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+
+}
+
+.answer{
+    width: 48%;
+    background-color: #fff;
+    border: 2px solid blue;
+    min-height: 70px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.answer-letter{
+    font-size: 20px;
+    width: 60px;
+    background-color: blue;
+    color: #fff;
+}
+
+.answer-text{
+    text-align: center;
+    padding-left: 55px;
+    padding-top: 10px;
+}
+
+.correct-answer{
+    background-color: green;
+}
+
+.wrong-answer{
+    background-color: red;
+}

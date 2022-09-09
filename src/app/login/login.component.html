@@ -1,4 +1,27 @@
-<p>login works!</p>
- 
-<button mat-button>button</button>
 
+<div class="bg-img">
+<form [formGroup]="loginform" class="container" (ngSubmit)="signIn()">
+  <h1>Login</h1>
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="pat@example.com"  [formControl]="loginform.controls.email| formControl " required>
+           <mat-error *ngIf="loginform.controls.email.invalid">{{getemailMessage()}}</mat-error> 
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Choose your character (required)</mat-label>
+        <input matInput placeholder="character id"  [formControl]="loginform.controls.character_id| formControl " required>
+        <mat-error *ngIf="loginform.hasError('required')">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+      <button type="submit" class="btn">Login</button>
+
+
+
+
+
+</form>
+</div>

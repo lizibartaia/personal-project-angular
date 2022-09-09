@@ -1,1 +1,38 @@
-<p>users works!</p>
+ <div class="container">
+<h1>User List</h1>
+<table >
+    <thead>
+      <tr>
+        <th> id </th>
+        <th> name </th>
+        <th> email </th>
+        <th> phone </th>
+        <th> date_of_birth </th>
+        <th> experience_level </th>
+        <th> already_participated </th>
+        <th> character_id </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of data">
+        <td data-th="id-title">{{element.id}}</td>
+        <td data-th="name-title">{{element.name}}</td>
+        <td data-th="email-title">{{element.email}}</td>
+        <td data-th="phone-title">{{element.phone}}</td>
+        <td data-th="dob-title">{{element.date_of_birth}}</td>
+        <td data-th="lvl-title">{{element.experience_level}}</td>
+        <td data-th="in-title">{{element.already_participated}}</td>
+        <td data-th="char-title">{{element.character_id}}</td>       
+        <td >
+          <button class="delete" (click)="delete(element)" >delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table> 
+  <h1>Do you love everything that has to do with board games?
+    Awesome! This board games quiz will be perfect for you and see how much you really know!</h1>
+  <h1>Board Games Quiz: 10 Fun Questions and Answers about Board Games</h1>
+  <button (click)="nextClicked()" class="custom-btn btn-12"><span>Click!</span><span>Check Out the Quiz</span></button>
+</div>
+
+ 

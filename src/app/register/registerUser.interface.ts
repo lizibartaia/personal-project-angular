@@ -8,6 +8,18 @@ export interface RegisterUser{
     experience_level: string,
     already_participated: boolean,
     character_id: number
+    
 
+}
+
+export interface grands{
+    id:number;
+    name:string,
+    image:string
+}
+
+export interface Login{
+    email:string;
+    character_id:number
 }
 

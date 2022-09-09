@@ -64,6 +64,7 @@
         @include second-step;
         top: 6.1%;
         left: 33%;
+        text-align: center;
         background-color: #F5F5F5;
     
     span{
@@ -100,7 +101,7 @@
         line-height: 48px;
         color: #000000;
         position: absolute;
-        top: 30%;
+        top: 28%;
         left: 51%;
     }
 
@@ -139,7 +140,7 @@
         gap: 10px;
         background-color: #212529;
         border-radius: 8px;
-        margin-left: 520px;
+        margin-left: 120px;
         span{
           @include buttonSpan;
           color: #FFFFFF;
@@ -158,5 +159,14 @@
         margin-left: 8px;
       }
 
+
+}
+
+form{
+    margin-top: 250px;
+    
+    .example-container{
+        margin-left: 110px;         
+     }
 
 }

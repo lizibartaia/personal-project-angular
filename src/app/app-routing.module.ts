@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+ 
 
 const routes: Routes = [
   {
@@ -24,7 +25,16 @@ const routes: Routes = [
   },
   {
     path:'users',
-    loadChildren:()=>import('src/app/users/users.module').then((m)=> m.UsersModule)
+    loadChildren:()=>import('src/app/users/users.module').then((m)=> m.UsersModule),
+
+  },
+  {
+    path:'',
+    loadChildren:()=>import('src/app/home/home.module').then((m)=> m.HomeModule)
+  },
+  {
+    path:'**',
+    loadChildren:()=>import('src/app/home/home.module').then((m)=> m.HomeModule)
   }
 ];
 

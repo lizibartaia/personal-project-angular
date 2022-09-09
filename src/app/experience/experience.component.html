@@ -1,4 +1,3 @@
-<p>experience works!</p>
 
 <div class="container">
     <div class="header-div">
@@ -20,62 +19,46 @@
         </div>
         <span class="personal">Personal information</span>
         <span class="chess">Chess experience</span>
-        <span class="info">Personal information</span>
+        <span class="info">Chess experience</span>
 
-        <form  > 
+        <form [formGroup]="regform" (ngSubmit)="experienced(regform)"experienced > 
           
             <mat-form-field appearance="fill">
                 <mat-label>Level of knowledge (required)</mat-label>
-                <select matNativeControl required [formControl]="selectFormControl">
+                <select matNativeControl required [formControl]="regform.controls.experience_level | formControl">
                   <option label="--select something --"></option>
                   <option value="beginner">beginner</option>
                   <option value="intermediate">intermediate</option>
-                  <option value="professional">professional</option>
+                  <option value="professional" >professional</option>
                 </select>
-                <mat-error *ngIf="selectFormControl.hasError('required')">
+                <mat-error *ngIf="regform.hasError('required')">
                   This field is required
                 </mat-error>
               </mat-form-field>
         
               <mat-form-field appearance="fill">
                 <mat-label>Choose your character (required)</mat-label>
-                <select matNativeControl required [formControl]="selectFormControl">
+                <select matNativeControl required [formControl]="regform.controls.character_id | formControl" >
                   <option label="--(Total 4) --"></option>
-                  <option value="Magnus Carlsen">Magnus Carlsen</option>
-                  <option value="Wilhelm Steinitz">Wilhelm Steinitz</option>
-                  <option value="Garry Kasparov">Garry Kasparov</option>
-                  <option value="Bobby Fischer">Bobby Fischer</option>
+                  <option  [value]="player.id" *ngFor="let player of grandData" >
+                    <a href="https://postimages.org/"><img src="{{player.image}}" alt=""></a> {{player.name}}</option>
+                  
                 </select>
-                <mat-error *ngIf="selectFormControl.hasError('required')">
+                <mat-error *ngIf="regform.hasError('required')">
                   This field is required
                 </mat-error>
               </mat-form-field>
 
               <p  class="required">Have you participated in Chess Championship?</p>
-                <input type="radio" id="yes" name="fav_language" value="yes">
+                <input type="radio" id="yes" name="fav_language" value="yes" [formControl]="regform.controls.already_participated | formControl" >
                 <label for="yes">Yes</label><br>
-                <input type="radio" id="no" name="fav_language" value="no">
+                <input type="radio" id="no" name="fav_language" value="no" [formControl]="regform.controls.already_participated | formControl">
                 <label for="no">No</label><br>
-                
-            
-
-               
-             
-              
-
-
-
-        
-        
-        
-        
-        
-           
-            <button class="back"  >
+            <button (click)="backbtn()" class="back"  >
               <span>Back</span>
           </button>
            
-          <button type="submit" class="next" >
+          <button type="submit" class="next" (click)="Nextclick()" >
               <span>Next</span>
               
           </button>
