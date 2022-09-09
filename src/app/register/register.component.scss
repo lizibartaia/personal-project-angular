@@ -1,26 +1,7 @@
 @use '/src/app/shared/shared.component.scss' as *;
 @include shared-grid;
-.HeaderText{
-    height: 7%;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid black;
-   
-    span{
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
-        color: white;
-        position: relative;
-        top: 35%;
-        left: 5%;
-        
-       
-    }
-}
+@include headertext-span;
+
 
 .aside-div{
     .step-one{
@@ -29,36 +10,29 @@
         border-radius: 8px;
         gap: 10px;
         border: 1px solid #E5E6E8;
-        background-color: #FFFFFF;//#FFFFFF;
+        background-color: #FFFFFF;
         position: relative;
         top: 10%;
         left: 12%;
 
-    span{
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 25px;
-        color: #212529;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+        span{
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 25px;
+            color: #212529;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+         }
         
 
 
     }
-
-    .line{
-        width: 174px;
-        height: 0px;
-        border:1px solid rgba(185, 180, 196, 0.3);
-        position: relative;
-        top: 8%;
-        left: 16.1%;
-    }
+        @include line;
+    
     .step-two{
        
         @include second-step;
@@ -73,17 +47,8 @@
     }
     }
 
-    .personal{
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        color: #000000;
-        position: absolute;
-        top: 21.5%;
-        left: 51%;
-    }
+    @include personal;
+   
 
     .chess{
         @include span-dec;
@@ -94,51 +59,19 @@
     }
 
     .info{
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 32px;
-        line-height: 48px;
-        color: #000000;
-        position: absolute;
+        
+        @include info-det;
         top: 28%;
         left: 51%;
     }
 
      
 
-    .back{
-        width: 93px;
-        height: 53px;
-        gap: 10px;
-        border: 1px solid #212529;
-        border-radius: 8px;
-        background-color: #FFFFFF;
-        margin-top: 110px;
-        margin-left: 60px;
-
-        span{
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 20px;
-            line-height: 27px;
-            color: #212529;
-        }
-    
-    }
-
-    .back:hover{
-        border: 1px solid #c2a5f9cc;
-        background-color: #F5F5F5;
-        cursor: pointer;
-    }
+    @include backHover;
 
     .next{
-        width: 128px;
-        height: 53px;
-        gap: 10px;
-        background-color: #212529;
+        
+        @include next;
         border-radius: 8px;
         margin-left: 120px;
         span{
